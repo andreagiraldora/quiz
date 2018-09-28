@@ -1,0 +1,51 @@
+tema 1
+
+create tablespace quiz3 datafile
+'PRIMERA_PARTE' SIZE 50M;
+'SEGUNDA_PARTE' SIZE 50M;
+
+CREATE PROFILE estudiante_quiz LIMIT
+PASSWORD_LIFE_TIME 40
+SESSIONS_PER_USER 1
+IDLE_TIME 5
+FAILED_LOGIN_ATTEMPTS 5;
+
+CREATE USER carlos_1 IDENTIFIED BY carlos_1 DEFAULT TABLESPACE QUIZ3 QUOTA UNLIMITED ON QUIZ3;
+grant connect to carlos_1;
+grant create table to carlos_1;
+
+create table icfes (
+	tipo_documento 	varchar2(255),
+	nacionalidad		varchar2(255),
+	genero					varchar2(255),
+	fecha_nacimiento	date,
+	periodo					varchar2(255),
+	consecutivo			varchar2(255),
+	departamento_residencia	varchar2(255),
+	codigo_departamento_residencia	integer,
+	municipio_residencia		varchar2(255),
+	codigo_municipio_residencia	varchar2(255),
+	estrato					varchar2(255),
+	educacion_padre	varchar2(255),
+	educacion_madre	varchar2(255),
+	tiene_internet	varchar2(255),
+	tiene_tv				varchar2(255),
+	tiene_lavadora	varchar2(255),
+	tiene_horno_micro_o_gas	varchar2(255),
+	tiene_automovil	varchar2(255),
+	tiene_motocicleta	varchar2(255),
+	tiene_consola_videojuegos	varchar2(255),
+	colegio_codigo_icfes	varchar2(255),
+	colegio_codigo_dane		varchar2(255),
+	colegio_nombre				varchar2(255),
+	puntaje_lectura_critica	integer,
+	puntaje_matematicas		integer,
+	puntaje_ciencias_naturales	integer,
+	puntaje_sociales			integer,
+	puntaje_ingles				integer,
+	desempeno_ingles			varchar2(255),
+	puntaje_global				integer
+);
+
+CREATE USER user2 IDENTIFIED BY user2 DEFAULT TABLESPACE QUIZ3 QUOTA UNLIMITED ON QUIZ3;
+GRANT PERMISO ON USER2.ICFES TO USER2
